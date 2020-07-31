@@ -1,0 +1,7 @@
+MajorOSInfo.pkg
+InstallInfo.plist
+InstallAssistant.pkg
+BuildManifest.plist
+*.sucatalog
+darling-dmg/
+dd

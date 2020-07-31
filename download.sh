@@ -65,7 +65,7 @@ fi
           fi
 # echo "Checking if Xar is installed or not"
 # checkxar
-# git clone https://github.com/darlinghq/darling-dmg.git
+git clone https://github.com/darlinghq/darling-dmg.git
 cd darling-dmg
 cmake .
 make

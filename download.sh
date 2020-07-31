@@ -50,10 +50,20 @@ then
 fi
 }
 
-# # Installing required dependencies 
+# Installing required dependencies 
  echo "Installing dependencies..."
-#  distroinstallprompt
-#  sudo $distroinstall $dependencies
+distroinstallprompt
+ echo "Checking if xar is installed"
+    workingdir=$(pwd)
+    cd /usr/local/bin/
+     if ! [ -x "$(command -v ls | grep 'xar')" ]; 
+     then
+     echo 'Xar not found, installing now.' >&2
+     sudo cp $workingdir/xar /usr/local/bin
+     exit 1
+     else
+     echo "cmake is installed"
+          fi
  echo "Checking if cmake is installed"
      if ! [ -x "$(command -v cmake)" ]; 
      then
@@ -78,7 +88,7 @@ python3 fetch-macOS.py --big-sur
 
 # # Extracts InstallAssistant.pkg into the root of the project, moves SharedSupport.dmg into it's own folder and extracts that.
 # # Then finally moves BaseSystem.dmg into the root.
-./xar -xf InstallAssistant.pkg
+xar -xf InstallAssistant.pkg
 echo "Checking to see if SharedSupport.dmg extracted correctly"
 7z l SharedSupport.dmg
 mkdir installfiles

@@ -42,7 +42,7 @@ then
     sudo rm -rf content darling-dmg installfiles
     rm SharedSupport.dmg
 fi
-}
+
 
 if [ "$answer" = "N" ] || [ "$answer" = "n" ]
 then

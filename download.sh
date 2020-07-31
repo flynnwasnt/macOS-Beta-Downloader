@@ -52,8 +52,8 @@ fi
 
 # # Installing required dependencies 
  echo "Installing dependencies..."
- distroinstallprompt
- sudo $distroinstall $dependencies
+#  distroinstallprompt
+#  sudo $distroinstall $dependencies
  echo "Checking if cmake is installed"
      if ! [ -x "$(command -v cmake)" ]; 
      then

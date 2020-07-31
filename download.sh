@@ -3,16 +3,6 @@
 dependencies="libxml2-dev libssl-dev zlib1g-dev libbz2-dev libfuse-dev p7zip-full"
 distroinstall="n"
 
-checkxar () {
-if ! [ -x "$(command -v xar)" ]; 
-then
-  echo 'Xar not found, installing now.' >&2
-  installxar
-  exit 1
-else
-  echo "Xar is installed"
-fi
-}
 
 distroinstallprompt () {
     echo -e "Please" "enter" "the" "install" "command" "for" "your" "distro."
@@ -53,17 +43,20 @@ fi
 # Installing required dependencies 
  echo "Installing dependencies..."
 distroinstallprompt
+sudo $distroinstall $dependencies
  echo "Checking if xar is installed"
     workingdir=$(pwd)
-    cd /usr/local/bin/
-     if ! [ -x "$(command -v ls | grep 'xar')" ]; 
+     if ! [ -x "$(command -v xar)" ]; 
      then
      echo 'Xar not found, installing now.' >&2
+     cd /usr/local/bin/
      sudo cp $workingdir/xar /usr/local/bin
-     exit 1
+     sudo cp $workingdir/libxar.so /usr/local/lib
+     sudo cp $workingdir/libxar.so.1 /usr/local/lib
+     cd $workingdir
      else
-     echo "cmake is installed"
-          fi
+     echo "Xar is installed"
+     fi
  echo "Checking if cmake is installed"
      if ! [ -x "$(command -v cmake)" ]; 
      then

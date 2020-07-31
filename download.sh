@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dependencies="libxml2-dev libssl-dev zlib1g-dev libbz2-dev libfuse-dev p7zip-full libssl1.0-dev"
+dependencies="libxml2-dev libssl-dev zlib1g-dev libbz2-dev libfuse-dev p7zip-full"
 distroinstall="n"
 
 checkxar () {
@@ -63,9 +63,9 @@ fi
      else
      echo "cmake is installed"
           fi
-echo "Checking if Xar is installed or not"
-checkxar
-git clone https://github.com/darlinghq/darling-dmg.git
+# echo "Checking if Xar is installed or not"
+# checkxar
+# git clone https://github.com/darlinghq/darling-dmg.git
 cd darling-dmg
 cmake .
 make
@@ -78,7 +78,7 @@ python3 fetch-macOS.py --big-sur
 
 # # Extracts InstallAssistant.pkg into the root of the project, moves SharedSupport.dmg into it's own folder and extracts that.
 # # Then finally moves BaseSystem.dmg into the root.
-xar -xf InstallAssistant.pkg
+./xar -xf InstallAssistant.pkg
 echo "Checking to see if SharedSupport.dmg extracted correctly"
 7z l SharedSupport.dmg
 mkdir installfiles

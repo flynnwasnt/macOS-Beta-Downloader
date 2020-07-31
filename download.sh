@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dependencies="libxml2-dev libssl-dev zlib1g-dev libbz2-dev libfuse-dev p7zip-full"
+dependencies="libxml2-dev libssl-dev zlib1g-dev libbz2-dev libfuse-dev p7zip-full libssl1.0-dev"
 distroinstall="n"
 
 checkxar () {

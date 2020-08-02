@@ -12,15 +12,6 @@ distroinstallprompt () {
 }
 
 
-installxar () {
-    git clone https://github.com/VantaInc/xar.git
-    cd xar/xar
-    sudo ./autogen.sh
-    make install
-    rm -rf xar
-}
-
-
 cleanup () {
 
 echo "Would you like the project dirrectory to be cleaned up? (Removing files that are no longer needed)"
@@ -33,15 +24,14 @@ then
     rm SharedSupport.dmg
 fi
 
-
 if [ "$answer" = "N" ] || [ "$answer" = "n" ]
 then
     exit
 fi
 }
 
-# Installing required dependencies 
- echo "Installing dependencies..."
+ 
+echo "Installing dependencies..."
 distroinstallprompt
 sudo $distroinstall $dependencies
  echo "Checking if xar is installed"

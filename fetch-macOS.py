@@ -402,7 +402,7 @@ def main():
     if args.big_sur:
         products = catalog['Products']
         # Beta 3 ID:
-        product = products["001-26097"]
+        product = products["001-43966"]
         workdir = "."
         ignore_cache = False
         for package in product.get('Packages', []):
